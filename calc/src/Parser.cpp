@@ -11,37 +11,34 @@ AST *Parser::parseCalc() {
   Expr *E;
   llvm::SmallVector<llvm::StringRef, 8> Vars;
   
-    if(Tok.is(Token::type)){
+  if(Tok.is(Token::type)){
     advance();
     if(Tok.is(Token::int)){
     advance();
     }
      if (expect(Token::ident))
       goto _error;
+    Vars.push_back(Tok.getText());
+    advance();
+    while (Tok.is(Token::comma)) {
+      advance();
+      if (expect(Token::ident))
+        goto _error;
       Vars.push_back(Tok.getText());
       advance();
-      while (Tok.is(Token::comma)) {
-        advance();
-        if (expect(Token::ident))
-          goto _error;
-        Vars.push_back(Tok.getText());
-        advance();
-        if(Tok.is(Token::semi)){
-          advance();
-        }
-      }
-
     }
-    else if(expect(Token::ident)){
+     if(Tok.is(Token::semi)){
+        advance();
+      }
+    }
+  else if(Tok.is(Token::ident)){
+    if(expect(Token::ident))
       goto _error;
     Vars.push_back(Tok.getText());
     advance();
     if(consume(Token::assign))
       goto _error;
-    if(Tok.is(Token::semi)){
-      advance();
-    }
-  
+  }
   E = parseExpr();
   if (expect(Token::eoi))
     goto _error;
@@ -49,10 +46,6 @@ AST *Parser::parseCalc() {
     return E;
   else
     return new WithDecl(Vars, E);
-_semi:
-  while (Tok.getKind() != Token::semi)
-    advance();
-  return nullptr;
 
 _error:
   while (Tok.getKind() != Token::eoi)
