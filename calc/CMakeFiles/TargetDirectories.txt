@@ -1,0 +1,8 @@
+F:/0.llvm/Learn-LLVM-12/Chapter03/calc/CMakeFiles/intrinsics_gen.dir
+F:/0.llvm/Learn-LLVM-12/Chapter03/calc/CMakeFiles/omp_gen.dir
+F:/0.llvm/Learn-LLVM-12/Chapter03/calc/CMakeFiles/acc_gen.dir
+F:/0.llvm/Learn-LLVM-12/Chapter03/calc/CMakeFiles/edit_cache.dir
+F:/0.llvm/Learn-LLVM-12/Chapter03/calc/CMakeFiles/rebuild_cache.dir
+F:/0.llvm/Learn-LLVM-12/Chapter03/calc/src/CMakeFiles/calc.dir
+F:/0.llvm/Learn-LLVM-12/Chapter03/calc/src/CMakeFiles/edit_cache.dir
+F:/0.llvm/Learn-LLVM-12/Chapter03/calc/src/CMakeFiles/rebuild_cache.dir
